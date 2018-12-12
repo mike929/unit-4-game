@@ -18,6 +18,7 @@ body {
 }
 
 #result{
+    font-size: 225%;
     padding-top: 20px;
     text-align: center;
 }
