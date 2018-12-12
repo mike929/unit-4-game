@@ -1,0 +1,49 @@
+body {
+    /* text-align: center; */
+    background-image: url("../../morocco.png");
+    background-color: #cccccc;
+ }
+
+.crystals{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.crystal{
+    border: 1px solid green;
+    height: 200px;
+    width: 200px;
+}
+
+#result{
+    padding-top: 20px;
+    text-align: center;
+}
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* .crystal-image {
+    width: 300px;
+    height: 300px;
+  } */
+
+
+
+ /* h1 {
+     font-size: 100%;
+     text-align: center;
+ } */
+
