@@ -1,39 +1,90 @@
-
-
 var random_result;
-var lose;
-var win;
-
-// Setters
-// Getters
-
-// $(".crystal").attr('class', 'red');
-
-random_result = Math.floor(Math.random() * 102) + 19;
+var lose = 0;
+var win = 0;
+var previous = 0;
 
 
-console.log("This is the random win number: ", random_result);
 
-$("#result").html("Winning Number: " + random_result);
+// reset wrapped into a function for resuse
+var resetGame = function () {
 
-for (var i = 0; i < 4; i++) {
+  $(".crystals").empty();
 
-  var random = Math.floor(Math.random() * 11) +1;
-    // console.log(random);
+  var images = [
+    'assets/images/Icon_Crystal_Red.png',
+    'assets/images/Quartz_crystal_icon.png',
+    'assets/images/Rainbow_crystal_icon.png',
+    'assets/images/Shadowshard_crystal_icon.png'
+  ];
 
-  var crystal = $("<div>");
-      crystal.attr({
-        "class": 'crystal',
-        "data-random": random
-      });
- 
-   $(".crystals").append(crystal);
- 
+  // create the random number players need to match
+  random_result = Math.floor(Math.random() * 102) + 19;
+  
+    $("#result").html(random_result);
+
+  // $("#result").html("Winning Number: " + random_result);
+
+  for (var i = 0; i < 4; i++) {
+    // create the 1 -12 numbers each crystal can have ( above this line means run 4 times, since we have 4 crystals)
+    var random = Math.floor(Math.random() * 12) + 1;
+
+    var crystal = $("<div>");
+    crystal.attr({
+      "class": 'crystal',
+      "data-random": random
+    });
+    crystal.css({
+      "background-image":"url('" + (images[i]) + "')",
+      "background-size":"cover"
+      
+    });
+
+    // crystal.append(random); // just to see the random number for each crystal TEMPORARY, while I work on the code
+
+    $(".crystals").append(crystal);
+
+  }
+
+  // $("#previous").html("Total Score: " + previous);
+
+  $("#previous").html(previous);
+
 }
 
-$(".crystal").on('click', function () {
-  
-  console.log($(this).attr('data-random'))
+
+resetGame();
+
+// Event delegation - we listen to the DOM after the click event we pass the element
+$(document).on('click', ".crystal", function () {
+
+
+  var num = parseInt($(this).attr('data-random'));
+
+  previous += num;
+
+  $("#previous").html(previous);
+
+  console.log(previous);
+
+  if (previous > random_result) {
+    lose++;
+
+    $("#lose").html("You Lose!: " + lose);
+
+    previous = 0;
+
+    resetGame();
+
+  } else if (previous === random_result) {
+    win++;
+
+    $("#win").html("You win!!: " + win);
+
+    previous = 0;
+
+    resetGame();
+
+  }
 
 });
 
