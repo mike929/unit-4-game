@@ -38,7 +38,7 @@ var resetGame = function () {
       
     });
 
-    // crystal.append(random); // just to see the random number for each crystal TEMPORARY, while I work on the code
+    // crystal.append(random); // just to see the random number for each crystal TEMPORARY, while I work on the code.
 
     $(".crystals").append(crystal);
 
