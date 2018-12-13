@@ -22,7 +22,6 @@ var resetGame = function () {
   
     $("#result").html(random_result);
 
-  // $("#result").html("Winning Number: " + random_result);
 
   for (var i = 0; i < 4; i++) {
     // create the 1 -12 numbers each crystal can have ( above this line means run 4 times, since we have 4 crystals)
@@ -54,7 +53,7 @@ var resetGame = function () {
 
 resetGame();
 
-// Event delegation - we listen to the DOM after the click event we pass the element
+// Event delegation - we listen to the DOM after the click event then we pass the element
 $(document).on('click', ".crystal", function () {
 
 
@@ -69,7 +68,7 @@ $(document).on('click', ".crystal", function () {
   if (previous > random_result) {
     lose++;
 
-    $("#lose").html("You Lose!: " + lose);
+    $("#lose").html("You Lose! " + lose);
 
     previous = 0;
 
@@ -78,7 +77,7 @@ $(document).on('click', ".crystal", function () {
   } else if (previous === random_result) {
     win++;
 
-    $("#win").html("You win!!: " + win);
+    $("#win").html("You win!! " + win);
 
     previous = 0;
 
@@ -95,7 +94,7 @@ $(document).on('click', ".crystal", function () {
 
 // create 4 boxes (images of crystals) in separate divs
 // one random match floor to create random number to solve (19-120)
-// I'm guess 4 more random math floors to get random crystal values (1 -12) 
+// another math random to get random crystal values (1 -12) 
 // separate div boxes to hold each value (score to match for win, accumulation for random crystal presses)
 // reset of game for win or loss and increament wins and loses for each game
 // A win is when the crystal score equals the random number
