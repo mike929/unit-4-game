@@ -52,7 +52,7 @@ body {
 .howTo{
     padding-top: 10px;
     margin: auto;
-    height: 180px;
+    /* height: 180px; */
     background: yellow;
     border: 3px solid red;
 
